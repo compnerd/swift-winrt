@@ -10,7 +10,7 @@ internal struct FieldMarshal: Table {
   /// Record Layout
   ///   Parent (HasFieldMarshal Coded Index)
   ///   NativeType (Blob Heap Index)
-  typealias RecordLayout = (Int, Int)
+  typealias RecordLayout = (Parent: Int, NativeType: Int)
 
   let layout: RecordLayout
   let stride: Int

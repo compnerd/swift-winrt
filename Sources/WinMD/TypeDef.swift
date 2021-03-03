@@ -14,7 +14,7 @@ internal struct TypeDef: Table {
   ///   Extends (TypeDefOrRef Coded Index)
   ///   FieldList (Field Index)
   ///   MethodList (MethodDef Index)
-  typealias RecordLayout = (Int, Int, Int, Int, Int, Int)
+  typealias RecordLayout = (Flags: Int, TypeName: Int, TypeNamespace: Int, Extends: Int, FieldList: Int, MethodList: Int)
 
   let layout: RecordLayout
   let stride: Int

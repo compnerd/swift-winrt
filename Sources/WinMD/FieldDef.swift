@@ -11,7 +11,7 @@ internal struct FieldDef: Table {
   ///   Flags (2-byte bitmask of FieldAttributes)
   ///   Name (String Heap Index)
   ///   Signature (Blob Heap Index)
-  typealias RecordLayout = (Int, Int, Int)
+  typealias RecordLayout = (Flags: Int, Name: Int, Signature: Int)
 
   let layout: RecordLayout
   let stride: Int

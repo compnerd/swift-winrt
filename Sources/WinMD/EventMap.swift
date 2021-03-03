@@ -10,7 +10,7 @@ internal struct EventMap: Table {
   /// Record Layout
   ///   Parent (TypeDef Index)
   ///   EventList (Event Index)
-  typealias RecordLayout = (Int, Int)
+  typealias RecordLayout = (Parent: Int, EventList: Int)
 
   let layout: RecordLayout
   let stride: Int

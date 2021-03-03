@@ -10,7 +10,7 @@ internal struct GenericParamConstraint: Table {
   /// Record Layout
   ///   Owner (GenericParam Index)
   ///   Constraint (TypeDefOrRef Coded Index)
-  typealias RecordLayout = (Int, Int)
+  typealias RecordLayout = (Owner: Int, Constraint: Int)
 
   let layout: RecordLayout
   let stride: Int

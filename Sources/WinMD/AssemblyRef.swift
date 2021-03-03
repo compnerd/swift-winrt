@@ -15,9 +15,9 @@ internal struct AssemblyRef: Table {
   ///   Flags (4-byte value, CorAssemblyFlags)
   ///   PublicKeyOrToken (Blob Heap Index)
   ///   Name (String Heap Index)
-  ///   Culutre (String Heap Index)
+  ///   Culture (String Heap Index)
   ///   HashValue (Blob Heap Index)
-  typealias RecordLayout = (Int, Int, Int, Int, Int, Int, Int, Int, Int)
+  typealias RecordLayout = (MajorVersion: Int, MinorVersion: Int, BuildNumber: Int, RevisionNumber: Int, Flags: Int, PublicKeyOrToken: Int, Name: Int, Culture: Int, HashValue: Int)
 
   let layout: RecordLayout
   let stride: Int

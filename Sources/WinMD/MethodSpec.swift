@@ -10,7 +10,7 @@ internal struct MethodSpec: Table {
   /// Record Layout
   ///   Method (MethodDefOrRef Coded Index)
   ///   Instantiation (Blob Heap Index)
-  typealias RecordLayout = (Int, Int)
+  typealias RecordLayout = (Method: Int, Instantiation: Int)
 
   let layout: RecordLayout
   let stride: Int

@@ -10,7 +10,7 @@ internal struct InterfaceImpl: Table {
   /// Record Layout
   ///   Class (TypeDef Index)
   ///   Interface (TypeDefOrRef Coded Index)
-  typealias RecordLayout = (Int, Int)
+  typealias RecordLayout = (Class: Int, Interface: Int)
 
   let layout: RecordLayout
   let stride: Int

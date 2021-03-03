@@ -10,7 +10,7 @@ internal struct FieldRVA: Table {
   /// Record Layout
   ///   RVA (4-byte constant)
   ///   Field (Field Index)
-  typealias RecordLayout = (Int, Int)
+  typealias RecordLayout = (RVA: Int, Field: Int)
 
   let layout: RecordLayout
   let stride: Int

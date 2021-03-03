@@ -11,7 +11,7 @@ internal struct TypeRef: Table {
   ///   ResolutionScope (ResolutionScope Coded Index)
   ///   TypeName (String Heap Index)
   ///   TypeNamespace (String Heap Index)
-  typealias RecordLayout = (Int, Int, Int)
+  typealias RecordLayout = (ResolutionScope: Int, TypeName: Int, TypeNamespace: Int)
 
   let layout: RecordLayout
   let stride: Int

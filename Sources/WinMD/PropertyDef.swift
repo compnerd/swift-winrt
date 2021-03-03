@@ -11,7 +11,7 @@ internal struct PropertyDef: Table {
   ///   Flags (2-byte bitmask of PropertyAttributes)
   ///   Name (String Heap Index)
   ///   Type (Blob Heap Index)
-  typealias RecordLayout = (Int, Int, Int)
+  typealias RecordLayout = (Flags: Int, Name: Int, Type: Int)
 
   let layout: RecordLayout
   let stride: Int

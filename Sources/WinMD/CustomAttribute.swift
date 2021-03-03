@@ -11,7 +11,7 @@ internal struct CustomAttribute: Table {
   ///   Parent (HasCustomAttribute Coded Index)
   ///   Type (CustomAttributeType Coded Index)
   ///   Value (Blob Heap Index)
-  typealias RecordLayout = (Int, Int, Int)
+  typealias RecordLayout = (Parent: Int, Type: Int, Value: Int)
 
   let layout: RecordLayout
   let stride: Int

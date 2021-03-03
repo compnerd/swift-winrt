@@ -11,7 +11,7 @@ internal struct DeclSecurity: Table {
   ///   Action (2-byte value)
   ///   Parent (HasDeclSecurity Coded Index)
   ///   PermissionSet (Blob Heap Index)
-  typealias RecordLayout = (Int, Int, Int)
+  typealias RecordLayout = (Action: Int, Parent: Int, PermissionSet: Int)
 
   let layout: RecordLayout
   let stride: Int

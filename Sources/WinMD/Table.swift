@@ -22,11 +22,23 @@ internal protocol TableBase {
   init(from data: ArraySlice<UInt8>, rows: UInt32, strides: [TableIndex:Int])
 }
 
-internal protocol Table: TableBase, CustomStringConvertible {
+internal protocol Table: TableBase, Sequence, CustomStringConvertible {
+  /// Defines the layout of the record (width of columns).
+  associatedtype RecordLayout
+
+  /// The layout of a record in the table.
+  var layout: RecordLayout { get }
 }
 
 extension Table {
   internal var description: String {
     "\(String(describing: Self.self)): rows: \(self.rows), stride: \(self.stride) bytes, data: \(self.data.count) bytes"
+  }
+}
+
+extension Table {
+  @inlinable
+  internal __consuming func makeIterator() -> Row<Self> {
+    return Row(table: self)
   }
 }

@@ -11,7 +11,7 @@ internal struct EventDef: Table {
   ///   EventFlags (2-byte bitmask EventAttributes)
   ///   Name (String Heap Index)
   ///   EventType (TypeDefOrRef Coded Index)
-  typealias RecordLayout = (Int, Int, Int)
+  typealias RecordLayout = (EventFlags: Int, Name: Int, EventType: Int)
 
   let layout: RecordLayout
   let stride: Int

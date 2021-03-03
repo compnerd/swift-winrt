@@ -11,7 +11,7 @@ internal struct MethodSemantics: Table {
   ///   Semantics (2-byte bitmask of MethodSemanticsAttributes)
   ///   Method (MethodDef Index)
   ///   Association (HasSemantics Coded Index)
-  typealias RecordLayout = (Int, Int, Int)
+  typealias RecordLayout = (Semantics: Int, Method: Int, Association: Int)
 
   let layout: RecordLayout
   let stride: Int

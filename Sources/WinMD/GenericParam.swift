@@ -12,7 +12,7 @@ internal struct GenericParam: Table {
   ///   Flags (2-byte bitmask of GenericParamAttributes)
   ///   Owner (TypeOrMethodDef Coded Index)
   ///   Name (String Heap Index)
-  typealias RecordLayout = (Int, Int, Int, Int)
+  typealias RecordLayout = (Number: Int, Flags: Int, Owner: Int, Name: Int)
 
   let layout: RecordLayout
   let stride: Int

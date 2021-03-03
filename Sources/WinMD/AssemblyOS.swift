@@ -11,7 +11,7 @@ internal struct AssemblyOS: Table {
   ///   OSPlatformID (4-byte constant)
   ///   OSMajorVersion (4-byte constant)
   ///   OSMinorVersion (4-byte constant)
-  typealias RecordLayout = (Int, Int, Int)
+  typealias RecordLayout = (OSPlatformID: Int, OSMajorVersion: Int, OSMinorVersion: Int)
 
   let layout: RecordLayout
   let stride: Int

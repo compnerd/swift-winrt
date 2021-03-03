@@ -13,7 +13,7 @@ internal struct ExportedType: Table {
   ///   TypeName (String Heap Index)
   ///   TypeNamespace (String Heap Index)
   ///   Implementation (Implementation Coded Index)
-  typealias RecordLayout = (Int, Int, Int, Int, Int)
+  typealias RecordLayout = (Flags: Int, TypeDefId: Int, TypeName: Int, TypeNamespace: Int, Implementation: Int)
 
   let layout: RecordLayout
   let stride: Int

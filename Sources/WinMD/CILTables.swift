@@ -22,10 +22,6 @@ extension Metadata {
   }
 }
 
-func element<RecordLayout>(of layout: RecordLayout, index: Int) -> Int {
-  return Mirror(reflecting: layout).children[AnyIndex(index)].value as! Int
-}
-
 func scan<RecordLayout>(of layout: RecordLayout, length: Int) -> Int {
   return Mirror(reflecting: layout).children.lazy.prefix(length).map { $0.value as! Int }.reduce(0, +)
 }

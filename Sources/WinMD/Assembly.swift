@@ -17,7 +17,7 @@ internal struct Assembly: Table {
   ///   PublicKey (Blob Heap Index)
   ///   Name (String Heap Index)
   ///   Culture (String Heap Index)
-  typealias RecordLayout = (Int, Int, Int, Int, Int, Int, Int, Int, Int)
+  typealias RecordLayout = (HashAlgId: Int, MajorVersion: Int, MinorVersion: Int, BuildNumber: Int, RevisionNumber: Int, Flags: Int, PublicKey: Int, Name: Int, Culture: Int)
 
   let layout: RecordLayout
   let stride: Int

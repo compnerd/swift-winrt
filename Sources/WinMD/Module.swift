@@ -13,7 +13,7 @@ internal struct Module: Table {
   ///   Mvid (Module Version ID) (GUID Heap Index)
   ///   EncId (GUID Heap Index, reserved, MBZ)
   ///   EncBaseId (GUID Heap Index, reserved, MBZ)
-  typealias RecordLayout = (Int, Int, Int, Int, Int)
+  typealias RecordLayout = (Generation: Int, Name: Int, Mvid: Int, EncId: Int, EncBaseId: Int)
 
   let layout: RecordLayout
   let stride: Int

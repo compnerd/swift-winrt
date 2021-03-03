@@ -9,7 +9,7 @@ extension Metadata.Tables {
 internal struct StandAloneSig: Table {
   /// Record Layout
   ///   Signature (Blob Heap Index)
-  typealias RecordLayout = (Int)
+  typealias RecordLayout = (Signature: Int, ())
 
   let layout: RecordLayout
   let stride: Int
@@ -19,7 +19,7 @@ internal struct StandAloneSig: Table {
   public static var number: Int { 17 }
 
   public init(from data: ArraySlice<UInt8>, rows: UInt32, strides: [TableIndex:Int]) {
-    self.layout = (strides[.blob]!)
+    self.layout = (strides[.blob]!, ())
     self.stride = strides[.blob]!
 
     self.rows = Int(rows)

@@ -11,7 +11,7 @@ internal struct MemberRef: Table {
   ///   Class (MemberRefParent Coded Index)
   ///   Name (String Heap Index)
   ///   Signature (Blob Heap Index)
-  typealias RecordLayout = (Int, Int, Int)
+  typealias RecordLayout = (Class: Int, Name: Int, Signature: Int)
 
   let layout: RecordLayout
   let stride: Int

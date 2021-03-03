@@ -11,7 +11,7 @@ internal struct ClassLayout: Table {
   ///   PackingSize (2-byte constant)
   ///   ClassSize (4-byte constant)
   ///   Parent (TypeDef Index)
-  typealias RecordLayout = (Int, Int, Int)
+  typealias RecordLayout = (PackingSize: Int, ClassSize: Int, Parent: Int)
 
   let layout: RecordLayout
   let stride: Int

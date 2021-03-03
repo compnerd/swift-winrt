@@ -9,7 +9,7 @@ extension Metadata.Tables {
 internal struct AssemblyProcessor: Table {
   /// Record Layout
   ///   Processor (4-byte constant)
-  typealias RecordLayout = (Int)
+  typealias RecordLayout = (Processor: Int, _: ())
 
   let layout: RecordLayout
   let stride: Int
@@ -19,7 +19,7 @@ internal struct AssemblyProcessor: Table {
   public static var number: Int { 33 }
 
   public init(from data: ArraySlice<UInt8>, rows: UInt32, strides: [TableIndex:Int]) {
-    self.layout = (4)
+    self.layout = (4, ())
     self.stride = 4
 
     self.rows = Int(rows)

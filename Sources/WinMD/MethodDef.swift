@@ -14,7 +14,7 @@ internal struct MethodDef: Table {
   ///   Name (String Heap Index)
   ///   Signature (Blob Heap Index)
   ///   ParamList (Param Index)
-  typealias RecordLayout = (Int, Int, Int, Int, Int, Int)
+  typealias RecordLayout = (RVA: Int, ImplFlags: Int, Flags: Int, Name: Int, Signature: Int, ParamList: Int)
 
   let layout: RecordLayout
   let stride: Int

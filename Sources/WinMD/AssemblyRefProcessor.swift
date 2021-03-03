@@ -10,7 +10,7 @@ internal struct AssemblyRefProcessor: Table {
   /// Record Layout
   ///   Processor (4-byte constant)
   ///   AssemblyRef (AssemblyRef Index)
-  typealias RecordLayout = (Int, Int)
+  typealias RecordLayout = (Processor: Int, AssemblyRef: Int)
 
   let layout: RecordLayout
   let stride: Int

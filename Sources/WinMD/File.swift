@@ -11,7 +11,7 @@ internal struct File: Table {
   ///   Flags (4-byte bitmask of FileAttributes)
   ///   Name (String Heap Index)
   ///   HashValue (Blob Heap Index)
-  typealias RecordLayout = (Int, Int, Int)
+  typealias RecordLayout = (Flags: Int, Name: Int, HashValue: Int)
 
   let layout: RecordLayout
   let stride: Int

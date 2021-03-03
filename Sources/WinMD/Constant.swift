@@ -11,7 +11,7 @@ internal struct Constant: Table {
   ///   Type (1-byte, 1-byte padding zero)
   ///   Parent (HasConstant Coded Index)
   ///   Value (Blob Heap Index)
-  typealias RecordLayout = (Int, Int, Int, Int)
+  typealias RecordLayout = (Type: Int, Int, Parent: Int, Value: Int)
 
   let layout: RecordLayout
   let stride: Int

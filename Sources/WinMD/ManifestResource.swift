@@ -12,7 +12,7 @@ internal struct ManifestResource: Table {
   ///   Flags (4-byte bitmask of ManifestResourceAttributes)
   ///   Name (String Heap Index)
   ///   Implementation (Implementation Coded Index)
-  typealias RecordLayout = (Int, Int, Int, Int)
+  typealias RecordLayout = (Offset: Int, Flags: Int, Name: Int, Implementation: Int)
 
   let layout: RecordLayout
   let stride: Int

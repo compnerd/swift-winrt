@@ -11,7 +11,7 @@ internal struct MethodImpl: Table {
   ///   Class (TypeDef Index)
   ///   MethodBody (MethodDefOrRef Coded Index)
   ///   MethodDeclaration (MethodDefOrRef Coded Index)
-  typealias RecordLayout = (Int, Int, Int)
+  typealias RecordLayout = (Class: Int, MethodBody: Int, MethodDeclaration: Int)
 
   let layout: RecordLayout
   let stride: Int

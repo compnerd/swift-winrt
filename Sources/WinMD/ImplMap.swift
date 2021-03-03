@@ -12,7 +12,7 @@ internal struct ImplMap: Table {
   ///   MemberForwarded (MemberForwarded Coded Index)
   ///   ImportName (String Heap Index)
   ///   ImportScope (ModuleRef Index)
-  typealias RecordLayout = (Int, Int, Int, Int)
+  typealias RecordLayout = (MappingFlags: Int, MemberForwarded: Int, ImportName: Int, ImportScope: Int)
 
   let layout: RecordLayout
   let stride: Int

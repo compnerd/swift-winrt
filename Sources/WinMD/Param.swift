@@ -11,7 +11,7 @@ internal struct Param: Table {
   ///   Flags (2-byte bitmask of ParamAttributes)
   ///   Sequence (2-byte constant)
   ///   Name (String Heap Index)
-  typealias RecordLayout = (Int, Int, Int)
+  typealias RecordLayout = (Flags: Int, Sequence: Int, Name: Int)
 
   let layout: RecordLayout
   let stride: Int

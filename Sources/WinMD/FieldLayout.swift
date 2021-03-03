@@ -10,7 +10,7 @@ internal struct FieldLayout: Table {
   /// Record Layout
   ///   Offset (4-byte constant)
   ///   Field (Field Index)
-  typealias RecordLayout = (Int, Int)
+  typealias RecordLayout = (Offset: Int, Field: Int)
 
   let layout: RecordLayout
   let stride: Int
