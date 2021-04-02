@@ -16,6 +16,15 @@ public enum Windows {
   }
 
   public enum System {
+    private struct Statics {
+      static var DispatcherQueueController: IDispatcherQueueControllerStatics =
+          try! RoGetActivationFactory(HString(RuntimeClass_Windows_System_DispatcherQueueController))
+    }
+
+    public static var DispatcherQueueController: IDispatcherQueueControllerStatics {
+      Statics.DispatcherQueueController
+    }
+
     public enum Profile {
       private struct Statics {
         static var SystemIdentification: ISystemIdentificationStatics =
