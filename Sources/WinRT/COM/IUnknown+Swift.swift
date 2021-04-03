@@ -10,7 +10,7 @@ extension IUnknown {
     var iid: IID = Interface.IID
     var pointer: UnsafeMutableRawPointer?
     try CHECKED(pUnk.pointee.lpVtbl.pointee.QueryInterface(pUnk, &iid, &pointer))
-    return Interface(pUnk: pointer)
+    return Interface(consuming: pointer?.bindMemory(to: WinSDK.IUnknown.self, capacity: 1))
   }
 }
 
@@ -24,7 +24,7 @@ extension IUnknown {
 
     var pointer: UnsafeMutableRawPointer?
     try CHECKED(CoCreateInstance(&clsid, RawPointer(pUnkOuter), DWORD(dwClsContext.rawValue), &iid, &pointer))
-    return Interface(pUnk: pointer)
+    return Interface(consuming: pointer?.bindMemory(to: WinSDK.IUnknown.self, capacity: 1))
   }
 }
 

@@ -11,11 +11,11 @@ public func RoGetActivationFactory<Factory: IInspectable>(_ activatableClassId: 
   var iid: IID = Factory.IID
   var factory: UnsafeMutableRawPointer?
   try CHECKED(RoGetActivationFactory(activatableClassId.hRef.hString, &iid, &factory))
-  return Factory(pUnk: factory)
+  return Factory(consuming: factory?.bindMemory(to: WinSDK.IUnknown.self, capacity: 1))
 }
 
 public func RoActivateInstance<Instance: IInspectable>(_ activatableClassId: HString) throws -> Instance {
   var instance: UnsafeMutablePointer<CWinRT.IInspectable>?
   try CHECKED(RoActivateInstance(activatableClassId.hRef.hString, &instance))
-  return Instance(pUnk: instance)
+  return Instance(consuming: UnsafeMutableRawPointer(instance)?.bindMemory(to: WinSDK.IUnknown.self, capacity: 1))
 }

@@ -7,7 +7,7 @@ extension ISystemIdentificationInfo {
   public var Id: IBuffer {
     var value: UnsafeMutablePointer<__x_ABI_CWindows_CStorage_CStreams_CIBuffer>?
     try! self.get_Id(&value)
-    return IBuffer(pUnk: value)
+    return IBuffer(consuming: value)
   }
 
   public var Source: SystemIdentificationSource {
