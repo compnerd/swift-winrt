@@ -4,7 +4,7 @@
 import CWinRT
 
 extension String {
-  internal init(from hString: HSTRING) {
+  internal init(from hString: HSTRING?) {
     var length: UINT32 = 0
     let pwszBuffer: PCWSTR = WindowsGetStringRawBuffer(hString, &length)
     self.init(decoding: UnsafeBufferPointer(start: pwszBuffer, count: Int(length)), as: UTF16.self)
