@@ -13,7 +13,7 @@ extension ICryptographicBufferStatics {
   public func GenerateRandom(_ length: UINT32) throws -> IBuffer {
     var buffer: UnsafeMutablePointer<__x_ABI_CWindows_CStorage_CStreams_CIBuffer>?
     try self.GenerateRandom(length, &buffer)
-    return IBuffer(pUnk: buffer)
+    return IBuffer(consuming: buffer)
   }
 
   public func GenerateRandomNumber() throws -> UINT32 {
@@ -27,7 +27,7 @@ extension ICryptographicBufferStatics {
     return try array.withUnsafeMutableBufferPointer {
       var buffer: UnsafeMutablePointer<__x_ABI_CWindows_CStorage_CStreams_CIBuffer>?
       try self.CreateFromByteArray(UINT32($0.count), $0.baseAddress, &buffer)
-      return IBuffer(pUnk: buffer)
+      return IBuffer(consuming: buffer)
     }
   }
 
@@ -36,7 +36,7 @@ extension ICryptographicBufferStatics {
     return try withExtendedLifetime(hString) {
       var buffer: UnsafeMutablePointer<__x_ABI_CWindows_CStorage_CStreams_CIBuffer>?
       try self.DecodeFromHexString(hString.hRef.hString, &buffer)
-      return IBuffer(pUnk: buffer)
+      return IBuffer(consuming: buffer)
     }
   }
 
@@ -51,7 +51,7 @@ extension ICryptographicBufferStatics {
     return try withExtendedLifetime(hString) {
       var buffer: UnsafeMutablePointer<__x_ABI_CWindows_CStorage_CStreams_CIBuffer>?
       try self.DecodeFromBase64String(hString.hRef.hString, &buffer)
-      return IBuffer(pUnk: buffer)
+      return IBuffer(consuming: buffer)
     }
   }
 
@@ -66,7 +66,7 @@ extension ICryptographicBufferStatics {
     return try withExtendedLifetime(hString) {
       var buffer: UnsafeMutablePointer<__x_ABI_CWindows_CStorage_CStreams_CIBuffer>?
       try self.ConvertStringToBinary(hString.hRef.hString, encoding, &buffer)
-      return IBuffer(pUnk: buffer)
+      return IBuffer(consuming: buffer)
     }
   }
 

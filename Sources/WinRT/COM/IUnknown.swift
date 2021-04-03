@@ -9,8 +9,24 @@ open class IUnknown {
 
   open class var IID: IID { IID_IUnknown }
 
-  public required init(pUnk pointer: UnsafeMutableRawPointer?) {
-    self.pUnk = IUnknownRef(consuming: pointer?.bindMemory(to: WinSDK.IUnknown.self, capacity: 1))
+  public required init(_ pointer: UnsafeMutablePointer<WinSDK.IUnknown>?) {
+    self.pUnk = IUnknownRef(pointer)
+  }
+
+  public convenience init(_ pointer: UnsafeMutableRawPointer?) {
+    let pUnk: UnsafeMutablePointer<WinSDK.IUnknown>? =
+        pointer?.bindMemory(to: WinSDK.IUnknown.self, capacity: 1)
+    self.init(pUnk)
+  }
+
+  public required init(consuming pointer: UnsafeMutablePointer<WinSDK.IUnknown>?) {
+    self.pUnk = IUnknownRef(consuming: pointer)
+  }
+
+  public convenience init(consuming pointer: UnsafeMutableRawPointer?) {
+    let pUnk: UnsafeMutablePointer<WinSDK.IUnknown>? =
+        pointer?.bindMemory(to: WinSDK.IUnknown.self, capacity: 1)
+    self.init(consuming: pUnk)
   }
 
   @_alwaysEmitIntoClient @inline(__always)

@@ -7,12 +7,12 @@ extension IDispatcherQueueController {
   public var get_DispatcherQueue: IDispatcherQueue {
     var value: UnsafeMutablePointer<__x_ABI_CWindows_CSystem_CIDispatcherQueue>?
     try! self.get_DispatcherQueue(&value)
-    return IDispatcherQueue(pUnk: value)
+    return IDispatcherQueue(consuming: value)
   }
 
   public func ShutdownQueueAsync() throws -> IAsyncAction {
     var operation: UnsafeMutablePointer<__x_ABI_CWindows_CFoundation_CIAsyncAction>?
     try self.ShutdownQueueAsync(&operation)
-    return IAsyncAction(pUnk: operation)
+    return IAsyncAction(consuming: operation)
   }
 }
