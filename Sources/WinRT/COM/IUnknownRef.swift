@@ -5,7 +5,7 @@ import WinSDK
 
 @_fixed_layout
 @usableFromInline
-final internal class IUnknownRef {
+internal final class IUnknownRef {
   private var pUnk: UnsafeMutablePointer<WinSDK.IUnknown>?
 
   init(_ pUnk: UnsafeMutablePointer<WinSDK.IUnknown>?) {
@@ -13,8 +13,18 @@ final internal class IUnknownRef {
     _ = self.pUnk?.pointee.lpVtbl.pointee.AddRef(self.pUnk)
   }
 
+  convenience init(_ pointer: UnsafeMutableRawPointer?) {
+    let pUnk = pointer?.bindMemory(to: WinSDK.IUnknown.self, capacity: 1)
+    self.init(pUnk)
+  }
+
   init(consuming pUnk: UnsafeMutablePointer<WinSDK.IUnknown>?) {
     self.pUnk = pUnk
+  }
+
+  convenience init(consuming pointer: UnsafeMutableRawPointer?) {
+    let pUnk = pointer?.bindMemory(to: WinSDK.IUnknown.self, capacity: 1)
+    self.init(consuming: pUnk)
   }
 
   deinit {
