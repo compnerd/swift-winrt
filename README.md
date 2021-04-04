@@ -11,6 +11,7 @@ Bridging to WinRT (Windows Runtime) to [Swift](https://www.swift.org).
 
 ## Example
 
+Basic synchronous calls to the Windows Runtime:
 ```swift
 import WinRT
 
@@ -25,6 +26,21 @@ do {
   print(Windows.Security.Cryptography.CryptographicBuffer.EncodeToHexString(buffer.Id))
 } catch let error {
   print(error)
+}
+```
+
+Basic asynchronous call into the Windows Runtime:
+```swift
+import WinRT
+
+@main
+struct Asynchronous {
+  public static func main() async throws {
+    try RoInitialize()
+    let controller =
+        try Windows.System.DispatcherQueueController.CreateOnDedicatedThread()
+    try await controller.ShutdownQueue()
+  }
 }
 ```
 
