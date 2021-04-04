@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: BSD-3
 
 import CWinRT
+import _Concurrency
 
 extension IDispatcherQueueController {
   public var get_DispatcherQueue: IDispatcherQueue {
@@ -14,5 +15,17 @@ extension IDispatcherQueueController {
     var operation: UnsafeMutablePointer<__x_ABI_CWindows_CFoundation_CIAsyncAction>?
     try self.ShutdownQueueAsync(&operation)
     return IAsyncAction(consuming: operation)
+  }
+}
+
+extension IDispatcherQueueController {
+  public func ShutdownQueue() async throws {
+    return try await withUnsafeThrowingContinuation { continuation in
+      do {
+        return try continuation.resume(returning: self.ShutdownQueueAsync().get())
+      } catch let error {
+        return continuation.resume(throwing: error)
+      }
+    }
   }
 }
