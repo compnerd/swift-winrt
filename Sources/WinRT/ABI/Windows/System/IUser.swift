@@ -29,13 +29,13 @@ public class IUser: IInspectable {
     }
   }
 
-  public func GetPropertyAsync(_ value: HSTRING?, _ operation: UnsafeMutablePointer<UnsafeMutablePointer<__FIAsyncOperation_1_IInspectable>?>?) throws {
+  public func GetPropertyAsync(_ value: HSTRING?, _ operation: UnsafeMutablePointer<UnsafeMutablePointer<CWinRT.__FIAsyncOperation_1_IInspectable>?>?) throws {
     return try perform(as: __x_ABI_CWindows_CSystem_CIUser.self) { pThis in
       try CHECKED(pThis.pointee.lpVtbl.pointee.GetPropertyAsync(pThis, value, operation))
     }
   }
 
-  public func GetPropertiesAsync(_ values: UnsafeMutablePointer<__FIVectorView_1_HSTRING>?, _ operation: UnsafeMutablePointer<UnsafeMutablePointer<__FIAsyncOperation_1___F__CIPropertySet>?>?) throws {
+  public func GetPropertiesAsync(_ values: UnsafeMutablePointer<CWinRT.__FIVectorView_1_HSTRING>?, _ operation: UnsafeMutablePointer<UnsafeMutablePointer<CWinRT.__FIAsyncOperation_1___F__CIPropertySet>?>?) throws {
     return try perform(as: __x_ABI_CWindows_CSystem_CIUser.self) { pThis in
       try CHECKED(pThis.pointee.lpVtbl.pointee.GetPropertiesAsync(pThis, values, operation))
     }
