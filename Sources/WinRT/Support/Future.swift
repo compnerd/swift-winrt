@@ -26,7 +26,7 @@ extension IAsyncAction: Future {
 
   internal func get() throws -> Void {
     let info: IAsyncInfo = try QueryInterface()
-    if info.Status == CWinRT.Started {
+    if try info.Status == CWinRT.Started {
       let event: HANDLE =
           CreateEventW(nil, /*bManualReset=*/true, /*DefaultValue=*/false, nil)
       // TODO(compnerd) validate event
