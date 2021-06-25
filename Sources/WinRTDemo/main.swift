@@ -11,7 +11,7 @@ class WinRTDemo {
     let buffer: ISystemIdentificationInfo =
         try Windows.System.Profile.SystemIdentification.GetSystemIdForPublisher()
 
-    let id: IBuffer = buffer.Id
+    let id: IBuffer = try buffer.Id
 
     let hex: String =
         try Windows.Security.Cryptography.CryptographicBuffer.EncodeToHexString(id)

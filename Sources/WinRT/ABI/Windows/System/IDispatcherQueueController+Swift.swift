@@ -5,10 +5,12 @@ import CWinRT
 import _Concurrency
 
 extension IDispatcherQueueController {
-  public var get_DispatcherQueue: IDispatcherQueue {
-    var value: UnsafeMutablePointer<__x_ABI_CWindows_CSystem_CIDispatcherQueue>?
-    try! self.get_DispatcherQueue(&value)
-    return IDispatcherQueue(consuming: value)
+  public var DispatcherQueue: IDispatcherQueue {
+    get throws {
+      var value: UnsafeMutablePointer<__x_ABI_CWindows_CSystem_CIDispatcherQueue>?
+      try self.get_DispatcherQueue(&value)
+      return IDispatcherQueue(consuming: value)
+    }
   }
 
   public func ShutdownQueueAsync() throws -> IAsyncAction {
